@@ -39,7 +39,7 @@ int main() {
 
         // TODO: record end time and calculate latency
 
-        // TODO: Update the UI
+        // TODO: Update the UIs
 
         // Prevent 100% CPU usage with a tiny sleep
         // std::this_thread::sleep_for(std::chrono::milliseconds(100));
