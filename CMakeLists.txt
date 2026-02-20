@@ -4,8 +4,12 @@ project(TerminalMarket LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+find_package(CURL REQUIRED)
+
 # Tell CMake where to look for your .hpp files
 include_directories(include)
+
+include_directories(${CURL_INCLUDE_DIRS})
 
 # Gather all your source files
 set(SOURCES
@@ -21,6 +25,8 @@ add_executable(terminal_markets ${SOURCES}
         include/parser.hpp
         include/ui.hpp
 )
+
+target_link_libraries(terminal_markets PRIVATE ${CURL_LIBRARIES})
 
 # This is where you will eventually link libraries like CPR or FTXUI
 # target_link_libraries(terminal-markets PRIVATE cpr::cpr ftxui::screen)
